@@ -1,5 +1,10 @@
-<div ckass='center jumbotron'>
-  <div class='text-center'>
-    <h1>Welcom to the Microposts</h1>
+<% if logged_in %>
+  <p>ログイン完了ユーザー：　<%= current_user.name %></p>
+<% else %>
+  <div ckass='center jumbotron'>
+    <div class='text-center'>
+      <h1>Welcom to the Microposts</h1>
+      <%= link_to 'Sign Up Now !', signup_path, class: 'btn btn-primary' %>
+    </div>
   </div>
-</div>
+<% end %>
