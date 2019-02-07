@@ -1,0 +1,6 @@
+<h1>ID: <%= @task.id %> のタスク詳細ページ</h1>
+<p><%= @task.content %></p>
+
+<%= link_to 'Back to task lists', messages_path %>
+<%= link_to 'Edit ot this page',edit_task_path(@task) %>
+<%= link_to 'Delte this task', @task, method: delete, data: { confirm: 'Is it sure???'} %>
