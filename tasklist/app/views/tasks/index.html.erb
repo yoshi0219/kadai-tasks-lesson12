@@ -1,9 +1,30 @@
 <h1>List of tasks</h1>
 
-<ul>
-  <% @tasks.each do |task| %>
-  <li><%= link_to task.id, task %> : <%= task.title %>  &gt; <%= task.content %></li>
-  <% end %>
-</ul>
+<% if @tasks.any? %>
+  <table class='table table-striped'>
+    <thead>
+      <tr>
+        <th>ID Nubmer</th>
+        <th>Title</th>
+        <th>Task</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @tasks.each do |task| %>
+      <tr>
+        <td><%= link_to task.id, task %></td>
+        <td><%= task.title %></td>
+        <td><%= task.content %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
 
-<%= link_to 'Create a new task', new_task_path %>
+
+
+  <div>
+    <%= paginate @tasks %>
+  </div>
+<% end %>
+  
+<%= link_to 'Create a new task', new_task_path, class: 'btn btn-primary'%>

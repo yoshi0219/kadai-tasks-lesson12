@@ -1,8 +1,19 @@
 <h1>ID: <%= @task.id %> のタスク詳細ページ</h1>
 
-<p>TITLE; <%= @task.title %></p>
-<p>TASK; <%= @task.content %></p>
+<table class='table table-borderd'>
+    <tr>
+        <th>ID Number</th>
+        <td><%= @task.title %><</td>
+    </tr>
+    <tr>
+        <th>Title</th>
+        <td><%= @task.content %></td>
+    </tr>
+    <tr>
+        <th>Task</th>
+        <td><%= @task.content %></td>
+    </tr>
+</table>
 
-<%= link_to 'Back to task lists', tasks_path %>
-<%= link_to 'Edit ot this task',edit_task_path(@task) %>
-<%= link_to 'Delte this task', @task, method: :delete, data: { confirm: 'Is it sure???'} %>
+<%= link_to 'Edit ot this task',edit_task_path(@task), class: 'btn btn-default' %>
+<%= link_to 'Delte this task', @task, method: :delete, data: { confirm: 'Is it sure???'},class:'btn btn-danger' %>
