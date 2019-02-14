@@ -30,21 +30,13 @@ class TasksController < ApplicationController
     set_task
   end
   
-  def delete
-    set_task
-    @task.destroy
-    
-    flash[:success] = '正常に削除されました。'
-    redirect_to tasks_url
-  end
   
   def destroy
-    set_task
     @task.destroy
-    
-    flash[:success] = '正常に削除されました。'
-    redirect_to tasks_url
+    flash[:success] = 'タスクを消去しました。'
+    redirect_to root_path
   end
+  
   
   def update
     set_task
@@ -65,6 +57,13 @@ class TasksController < ApplicationController
   end
   
   def task_params
-    params.require(:task).permit(:content, :title, :user_id)
+    params.require(:task).permit(:content, :title,)
+  end
+  
+  def correct_user
+    @task = current_user.tasks.find_by(id: params[:id])
+    unless @task
+    redirect_to root_url
+    end
   end
 end

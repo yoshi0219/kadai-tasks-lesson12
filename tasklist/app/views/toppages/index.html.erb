@@ -1,12 +1,15 @@
 <% if logged_in? %>
-  <p>Logged In User: <%= current_user.name %></p>
+
+  <%= render 'index', tasks: @tasks %>
 
 <% else %>
+
   <div class='center jumbotron'>
     <div class='text-center'>
       <h1>Welcome to Tasklist.com</h1>
       <%= link_to 'Sign Up Now !', signup_path, class: 'btn btn-lg btn-primary' %>
     </div>
   </div>
-
+  
 <% end %>
+

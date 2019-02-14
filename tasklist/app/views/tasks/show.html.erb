@@ -15,5 +15,6 @@
     </tr>
 </table>
 
-<%= link_to 'Edit ot this task',edit_task_path(@task), class: 'btn btn-default' %>
+
+<%= link_to 'Edit to this task', edit_task_path(@task), class: 'btn btn-default' %>
 <%= link_to 'Delte this task', @task, method: :delete, data: { confirm: 'Is it sure???'},class:'btn btn-danger' %>
