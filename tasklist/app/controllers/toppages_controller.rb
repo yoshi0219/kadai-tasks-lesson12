@@ -5,4 +5,10 @@ class ToppagesController < ApplicationController
   def index
    @tasks = Task.all.page(params[:page]).per(25)
   end
+  
+  private
+  
+ def set_task
+   @task = Task.find(params[:id])
+ end
 end
