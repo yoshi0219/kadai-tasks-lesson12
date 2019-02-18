@@ -1,14 +1,9 @@
 class ToppagesController < ApplicationController
- before_action :set_task, only: [:show, :edit, :update, :destroy]
-  
   
   def index
-   @tasks = Task.all.page(params[:page]).per(25)
+   if logged_in?
+    @tasks = current_user.tasks.build
+    @tasks = current_user.tasks.order('created_at DESC').page(params[:page])
+   end
   end
-  
-  private
-  
- def set_task
-   @task = Task.find(params[:id])
- end
 end
